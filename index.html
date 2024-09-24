@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Website</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Include EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("_Vi08Yke-pLsVczaX"); 
+        })();
+    </script>
 </head>
 <body>
     <!-- Header Section -->
@@ -45,7 +52,7 @@
         <!-- Listing Section -->
         <section id="listing" class="content-section">
             <h2>Listing</h2>
-            <p>Property li  stings will go here.</p>
+            <p>Property listings will go here.</p>
         </section>
 
         <!-- Team Section -->
@@ -61,7 +68,7 @@
         <!-- Contact Us Section -->
         <section id="contact" class="content-section">
             <h2>Contact Call</h2>
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name">
                 
@@ -75,8 +82,42 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email">
                 
                 <button type="submit">Submit</button>
+                <p id="errorMessage" style="color:red; display:none;">Please fill in all fields.</p>
+                <p id="successMessage" style="color:green; display:none;">Your message has been sent successfully!</p>
             </form>
         </section>
     </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting automatically
+
+            // Validate form fields
+            const name = document.getElementById('name').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!name || !address || !phone || !email) {
+                document.getElementById('errorMessage').style.display = 'block';
+            } else {
+                document.getElementById('errorMessage').style.display = 'none';
+
+                // Send email via EmailJS
+                emailjs.send("service_w0v2a2n", "template_6u5ee1p", {
+                    name: name,
+                    address: address,
+                    phone: phone,
+                    email: email
+                })
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('successMessage').style.display = 'block';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
