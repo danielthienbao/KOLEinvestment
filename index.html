@@ -100,7 +100,7 @@
 
             if (!name || !address || !phone || !email) {
                 document.getElementById('errorMessage').style.display = 'block';
-            } else {
+            } else { 
                 document.getElementById('errorMessage').style.display = 'none';
 
                 // Send email via EmailJS
@@ -110,14 +110,20 @@
                     phone: phone,
                     email: email
                 })
-                .then(function(response) {
+                .then(response => {
                     console.log('SUCCESS!', response.status, response.text);
                     document.getElementById('successMessage').style.display = 'block';
-                }, function(error) {
+
+                    // Clear all input fields after successful submission
+                    document.getElementById('contactForm').reset();
+                }, 
+                (error) => {
                     console.log('FAILED...', error);
-                });
+                },
+                );
             }
         });
+    
     </script>
 </body>
 </html>
