@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">emailjs.init("_Vi08Yke-pLsVczaX"); 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <title>Real Estate Website</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Include EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init("_Vi08Yke-pLsVczaX"); 
@@ -67,7 +67,7 @@
 
         <!-- Contact Us Section -->
         <section id="contact" class="content-section">
-            <h2>Contact Call</h2>
+            <h2>Contact Us</h2>
             <form class="contact-form" id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name">
@@ -81,12 +81,17 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email">
                 
-                <button type="submit">Submit</button>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your message"></textarea>
+
+                <button type="button" onclick="sendMail()">Submit</button>
                 <p id="errorMessage" style="color:red; display:none;">Please fill in all fields.</p>
                 <p id="successMessage" style="color:green; display:none;">Your message has been sent successfully!</p>
             </form>
         </section>
     </main>
+</body>
+
 
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
