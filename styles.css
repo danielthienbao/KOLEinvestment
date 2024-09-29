@@ -4,7 +4,7 @@ body {
 }
 
 .navbar {
-    background-color: #0096FF; /* Sea blue color */
+    background-color: #0096FF;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body {
 }
 
 .nav-links li a {
-    color: black; /* Text color black */
+    color: black;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 12px;
@@ -39,14 +39,27 @@ body {
 .team-member {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 .team-photo {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 2px solid #2E8B57;
+    border: 3px solid #4CAF50;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.team-details {
+    text-align: left;
+}
+
+.team-title {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .contact-form {
