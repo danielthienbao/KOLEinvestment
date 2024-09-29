@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">emailjs.init("_Vi08Yke-pLsVczaX"); 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +19,9 @@
     <header>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#buy">BUY</a></li>
-                <li><a href="#sell">SELL</a></li>
-                <li><a href="#listing">LISTING</a></li>
+                <li><a href="https://www.choicehomes4sale.com/buying/" target="_blank">BUY</a></li>
+                <li><a href="https://www.choicehomes4sale.com/selling-your-home/" target="_blank">SELL</a></li>
+                <li><a href="https://choicehomes4sale.com/search/advanced_search/" target="_blank">LISTING</a></li>
                 <li><a href="#team">TEAM</a></li>
                 <li><a href="#contact">CONTACT US</a></li>
             </ul>
@@ -31,28 +30,19 @@
 
     <!-- Main Content Section -->
     <main>
-        <!-- FAQ Section -->
-        <section id="faq" class="content-section">
-            <h2>FAQ</h2>
-            <p>Answers to frequently asked questions will go here.</p>
-        </section>
-
-        <!-- Buy Section -->
+        <!-- Buy Section (now linked externally) -->
         <section id="buy" class="content-section">
-            <h2>Buy</h2>
-            <p>Details on buying properties.</p>
+            <h2><a href="https://www.choicehomes4sale.com/buying/" target="_blank">Buy</a></h2>
         </section>
 
-        <!-- Sell Section -->
+        <!-- Sell Section (now linked externally) -->
         <section id="sell" class="content-section">
-            <h2>Sell</h2>
-            <p>Information about selling your property.</p>
+            <h2><a href="https://www.choicehomes4sale.com/selling-your-home/" target="_blank">Sell</a></h2>
         </section>
 
-        <!-- Listing Section -->
+        <!-- Listing Section (now linked externally) -->
         <section id="listing" class="content-section">
-            <h2>Listing</h2>
-            <p>Property listings will go here.</p>
+            <h2><a href="https://choicehomes4sale.com/search/advanced_search/" target="_blank">Listing</a></h2>
         </section>
 
         <!-- Team Section -->
@@ -60,8 +50,9 @@
             <h2>Meet Our Team</h2>
             <div class="team-member">
                 <h3>Kim Oanh Le</h3>
+                <p><strong>Real Estate Agent</strong></p>
                 <img src="images/placeholder.jpg" alt="Kim Oanh Le" class="team-photo">
-                <p>Description or bio of Kim Oanh Le.</p>
+                <p>Kim Oanh Le is part of Best Choice Realty.</p>
             </div>
         </section>
 
@@ -90,45 +81,47 @@
             </form>
         </section>
     </main>
-</body>
 
-
+    <!-- Script Section -->
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent form from submitting automatically
+        function sendMail() {
+            var name = document.getElementById("name").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var message = document.getElementById("message").value.trim();
 
-            // Validate form fields
-            const name = document.getElementById('name').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
 
-            if (!name || !address || !phone || !email) {
+            if (!name || !address || !phone || !email || !message) {
                 document.getElementById('errorMessage').style.display = 'block';
-            } else { 
+                return;
+            } else {
                 document.getElementById('errorMessage').style.display = 'none';
-
-                // Send email via EmailJS
-                emailjs.send("service_w0v2a2n", "template_6u5ee1p", {
-                    name: name,
-                    address: address,
-                    phone: phone,
-                    email: email
-                })  
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    document.getElementById('successMessage').style.display = 'block';
-
-                    // Clear all input fields after successful submission
-                    document.getElementById('contactForm').reset();
-                }, 
-                (error) => {
-                    console.log('FAILED...', error);
-                },
-                );
             }
-        });
-    
+
+            var params = {
+                name: name,
+                address: address,
+                phone: phone,
+                email: email,
+                message: message
+            };
+
+            const serviceID = "service_w0v2a2n"; // Replace with your EmailJS service ID
+            const templateID = "template_6u5ee1p"; // Replace with your EmailJS template ID
+
+            emailjs.send(serviceID, templateID, params)
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Clear form after successful submission
+                document.getElementById('contactForm').reset();
+            })
+            .catch((error) => {
+                console.log('FAILED...', error);
+            });
+        }
     </script>
 </body>
 </html>
