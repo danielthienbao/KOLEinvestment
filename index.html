@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Website</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <!-- Include EmailJS SDK -->
@@ -16,8 +15,7 @@
             emailjs.init("_Vi08Yke-pLsVczaX"); 
         })();
     </script>
-</head>
-<body>
+
     <!-- Header Section -->
     <header>
         <nav class="navbar">
@@ -33,20 +31,49 @@
 
     <!-- Main Content Section -->
     <main>
-        <!-- Buy Section (now linked externally) -->
-        <section id="buy" class="content-section">
-            <h2><a href="https://www.choicehomes4sale.com/buying/" target="_blank">Buy</a></h2>
-        </section>
-
-        <!-- Sell Section (now linked externally) -->
-        <section id="sell" class="content-section">
-            <h2><a href="https://www.choicehomes4sale.com/selling-your-home/" target="_blank">Sell</a></h2>
-        </section>
-
-        <!-- Listing Section (now linked externally) -->
-        <section id="listing" class="content-section">
-            <h2><a href="https://choicehomes4sale.com/search/advanced_search/" target="_blank">Listing</a></h2>
-        </section>
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="service-box">
+                <h2>Real Estate Services</h2>
+                <button onclick="location.href='https://www.choicehomes4sale.com/'">Main Page</button>
+                <button onclick="location.href='https://www.choicehomes4sale.com/buying/'">Buying</button>
+                <button onclick="location.href='https://www.choicehomes4sale.com/selling-your-home/'">Selling</button>
+                <button onclick="location.href='https://choicehomes4sale.com/search/advanced_search/'">Listing</button>                
+            </div>
+            <div class="service-box">
+                <h2>Financial Services</h2>
+                <div class="financial-content">
+                    <h3>Real Estate Investment</h3>
+                    <ul>
+                        <li>Current Project</li>
+                        <li>Previous Projects</li>
+                        <li>Downtown Bellevue</li>
+                        <li>Crossroad Bellevue</li>
+                        <li>Seattle Leschi</li>
+                    </ul>
+                    <h3>Saving and Investment Questions</h3>
+                    <ul>
+                        <li>What's the best way to save for college?</li>
+                        <li>How do I qualify for tax-free income?</li>
+                        <li>Should I max out my 401k?</li>
+                        <li>How can children start investing?</li>
+                        <li>Should I roll out my 401K?</li>
+                        <li>What about long term care costs?</li>
+                        <li>How do I lower my future taxes?</li>
+                    </ul>
+                    <h3>Retirement and Financial Planning</h3>
+                    <ul>
+                        <li>Do you have a retirement plan?</li>
+                        <li>Save money each month</li>
+                        <li>Earn compound interest</li>
+                        <li>Take out tax-free cash</li>
+                        <li>Living benefits for long term care</li>
+                        <li>Death benefit to leave your loved one</li>
+                    </ul>
+                    <h3>Be Your Own Bank</h3>
+                    <p>Do you want to be your own bank?</p>
+                </div>
+            </section>
 
         <!-- Team Section -->
         <section id="team" class="content-section">
@@ -60,6 +87,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Contact Us Section -->
         <section id="contact" class="content-section">
             <h2>Contact Us</h2>
@@ -95,7 +123,6 @@
             var email = document.getElementById("email").value.trim();
             var message = document.getElementById("message").value.trim();
 
-
             if (!name || !address || !phone || !email || !message) {
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
@@ -107,12 +134,12 @@
                 name: name,
                 address: address,
                 phone: phone,
-                email: email,
+                email: email,   
                 message: message
             };
 
-            const serviceID = "service_w0v2a2n"; // Replace with your EmailJS service ID
-            const templateID = "template_6u5ee1p"; // Replace with your EmailJS template ID
+            const serviceID = "service_w0v2a2n";
+            const templateID = "template_6u5ee1p";
 
             emailjs.send(serviceID, templateID, params)
             .then((response) => {
