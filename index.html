@@ -1,186 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOLE Investment - Insurance & Real Estate Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--  EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("_Vi08Yke-pLsVczaX"); 
-        })();
-    </script>
 
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="https://www.choicehomes4sale.com/buying/" target="_blank">BUY</a></li>
-                <li><a href="https://www.choicehomes4sale.com/selling-your-home/" target="_blank">SELL</a></li>
-                <li><a href="https://choicehomes4sale.com/search/advanced_search/" target="_blank">LISTING</a></li>
-                <li><a href="#team">TEAM</a></li>
-                <li><a href="#contact">CONTACT US</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="logo">
+        <a href="/">KOLE Investment</a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#about">About us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Main Content Section -->
-    <main>
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="service-box">
-                <h2>Real Estate Services</h2>
-                <button onclick="location.href='https://www.choicehomes4sale.com/'">Main Page</button>
-                <button onclick="location.href='https://www.choicehomes4sale.com/buying/'">Buying</button>
-                <button onclick="location.href='https://www.choicehomes4sale.com/selling-your-home/'">Selling</button>
-                <button onclick="location.href='https://choicehomes4sale.com/search/advanced_search/'">Listing</button>                
-            </div>
-            <div class="service-box">
-                <h2>Financial Services</h2>
-                <div class="financial-content">
-                    <h3>Real Estate Investment</h3>
-                    <ul>
-                        <li><span onclick="showImage('images/placeholder.jpg')">Current Project</span></li>
-                        <li><span onclick="showImage('images/placeholder.jpg')">Previous Projects</span></li>
-                        <li><span onclick="showImage('images/placeholder.jpg')">Downtown Bellevue</span></li>
-                        <li><span onclick="showImage('images/placeholder.jpg')">Crossroad Bellevue</span></li>
-                        <li><span onclick="showImage('images/placeholder.jpg')">Seattle Leschi</span></li>
-                    </ul>
-                    <h3>Saving and Investment Questions</h3>
-                    <ul>
-                        <li>What's the best way to save for college?</li>
-                        <li>How do I qualify for tax-free income?</li>
-                        <li>Should I max out my 401k?</li>
-                        <li>How can children start investing?</li>
-                        <li>Should I roll out my 401K?</li>
-                        <li>What about long term care costs?</li>
-                        <li>How do I lower my future taxes?</li>
-                    </ul>
-                    <h3>Retirement and Financial Planning</h3>
-                    <ul>
-                        <li>Do you have a retirement plan?</li>
-                        <li>Save money each month</li>
-                        <li>Earn compound interest</li>
-                        <li>Take out tax-free cash</li>
-                        <li>Living benefits for long term care</li>
-                        <li>Death benefit to leave your loved one</li>
-                    </ul>
-                    <h3>Be Your Own Bank</h3>
-                    <p>Do you want to be your own bank?</p>
-                </div>
-                
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="content-section">
-            <h2>Meet Our Team</h2>
-            <div class="team-member">
-                <img src="images/placeholder.jpg" alt="Kim Oanh Le" class="team-photo">
-                <div class="team-details">
-                    <h3>Kim Oanh Le</h3>
-                    <p class="team-title">Real Estate Agent</p>
-                    <p>Kim Oanh Le is part of Best Choice Realty.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section id="contact" class="content-section">
-            <h2>Contact Us</h2>
-            <form class="contact-form" id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
-                
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" placeholder="Enter your address">
-                
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email">
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" placeholder="Your message"></textarea>
-
-                <button type="button" onclick="sendMail()">Submit</button>
-                <p id="errorMessage" style="color:red; display:none;">Please fill in all fields.</p>
-                <p id="successMessage" style="color:green; display:none;">Your message has been sent successfully!</p>
-            </form>
-        </section>
-    </main>
-
-    <!-- Modal Structure -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Project Image">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Future, Our Priority</h1>
+      <p>Expert guidance in insurance, real estate investment, and financial planning</p>
+      <button class="cta-button">Get Started</button>
     </div>
+  </section>
 
-    <!-- Emial Service -->
-    <script>
-        function sendMail() {
-            var name = document.getElementById("name").value.trim();
-            var address = document.getElementById("address").value.trim();
-            var phone = document.getElementById("phone").value.trim();
-            var email = document.getElementById("email").value.trim();
-            var message = document.getElementById("message").value.trim();
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Financial Services</h3>
+        <p>Comprehensive financial planning, retirement strategies, and insurance solutions for your future.</p>
+        <a href="#" class="learn-more">Learn more</a>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-home"></i>
+        <h3>Real Estate Investment</h3>
+        <p>Expert guidance in property investment, market analysis, and portfolio management.</p>
+        <a href="#" class="learn-more">Learn more</a>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-piggy-bank"></i>
+        <h3>Be Your Own Bank</h3>
+        <p>Learn how to leverage financial tools and strategies to create your personal banking system.</p>
+        <a href="#" class="learn-more">Learn more</a>
+      </div>
+    </div>
+  </section>
 
-            if (!name || !address || !phone || !email || !message) {
-                document.getElementById('errorMessage').style.display = 'block';
-                return;
-            } else {
-                document.getElementById('errorMessage').style.display = 'none';
-            }
+  <!-- Team Section -->
+  <section class="team" id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/kim-oanh-le.jpg" alt="Kim Oanh Le">
+        <h3>Kim Oanh Le</h3>
+        <p class="title">Real Estate Agent & Financial Advisor</p>
+        <div class="expertise">
+          <span>Financial Services</span>
+          <span>Real Estate Investment</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            var params = {
-                name: name,
-                address: address,
-                phone: phone,
-                email: email,   
-                message: message
-            };
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2>Our Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="images/downtown-bellevue.jpg" alt="Downtown Bellevue">
+        <h3>Downtown Bellevue</h3>
+        <p>Luxury residential development in the heart of Bellevue</p>
+      </div>
+      <div class="project-card">
+        <img src="images/crossroad-bellevue.jpg" alt="Crossroad Bellevue">
+        <h3>Crossroad Bellevue</h3>
+        <p>Mixed-use development project with retail and residential spaces</p>
+      </div>
+      <div class="project-card">
+        <img src="images/seattle-leschi.jpg" alt="Seattle Leschi">
+        <h3>Seattle Leschi</h3>
+        <p>Waterfront property development with premium amenities</p>
+      </div>
+    </div>
+  </section>
 
-            const serviceID = "service_w0v2a2n";
-            const templateID = "template_6u5ee1p";
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <h2>Financial Planning FAQ</h2>
+    <div class="faq-grid">
+      <div class="faq-column">
+        <h3>Saving and Investment</h3>
+        <div class="faq-item">
+          <h4>What's the best way to save for college?</h4>
+          <div class="faq-content">Learn about 529 plans and other tax-advantaged options.</div>
+        </div>
+        <div class="faq-item">
+          <h4>How do I qualify for tax-free income?</h4>
+          <div class="faq-content">Discover strategies for tax-efficient wealth building.</div>
+        </div>
+        <div class="faq-item">
+          <h4>Should I max out my 401k?</h4>
+          <div class="faq-content">Understand the pros and cons of different retirement accounts.</div>
+        </div>
+      </div>
+      <div class="faq-column">
+        <h3>Retirement Planning</h3>
+        <div class="faq-item">
+          <h4>Do you have a retirement plan?</h4>
+          <ul>
+            <li>Save money each month</li>
+            <li>Earn compound interest</li>
+            <li>Take out tax-free cash</li>
+            <li>Living benefits for long term care</li>
+            <li>Death benefit to leave your loved ones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            emailjs.send(serviceID, templateID, params)
-            .then((response) => {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById('successMessage').style.display = 'block';
+  <!-- Quote Form -->
+  <section class="quote-form">
+    <h2>Get Your Free Consultation</h2>
+    <form id="quoteForm">
+      <div class="form-group">
+        <input type="text" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="Phone" required>
+      </div>
+      <div class="form-group">
+        <select required>
+          <option value="">Select Service</option>
+          <option value="financial">Financial Services</option>
+          <option value="real-estate">Real Estate Investment</option>
+          <option value="insurance">Insurance</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-button">Schedule Consultation</button>
+    </form>
+  </section>
 
-                // Clear form after successful submission
-                document.getElementById('contactForm').reset();
-            })
-            .catch((error) => {
-                console.log('FAILED...', error);
-            });
-        }
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#about">About KOLE Investment</a></li>
+          <li><a href="#team">Our Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Financial Services</a></li>
+          <li><a href="#services">Real Estate Investment</a></li>
+          <li><a href="#services">Insurance Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Phone: (555) 123-4567</p>
+        <p>Email: contact@koleinvestment.com</p>
+        <p>Address: Bellevue, WA</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 KOLE Investment. All rights reserved.</p>
+    </div>
+  </footer>
 
-        function showImage(imageSrc) {
-            var modal = document.getElementById("myModal");
-            var img = document.getElementById("modalImage");
-            img.src = imageSrc; // Set the image source
-            modal.style.display = "block"; // Show the modal
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none"; // Hide the modal
-        }
-        
-        // Close the modal when clicking outside of the image
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
